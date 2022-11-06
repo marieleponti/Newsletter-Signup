@@ -6,7 +6,7 @@ const https = require("https");
 const { post } = require("request");
 
 const app = express();
-const apiKey = "7354ad00281c421caa18be160020e31c-us17";
+const apiKey = process.env.REACT_APP_API_KEY
 const listId = "d9ed8c2cb8";
 
 app.use(express.static("public"));
