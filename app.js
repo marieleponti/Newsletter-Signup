@@ -6,14 +6,14 @@ const https = require("https");
 const { post } = require("request");
 
 const app = express();
-const apiKey = "13b5b0ad23b62ebdf6fc9c042475711e-us17";
+const apiKey = "7354ad00281c421caa18be160020e31c-us17";
 const listId = "d9ed8c2cb8";
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json({extended:true}));
 
-app.listen(3000, function(){
+app.listen(process.env.PORT || 3000, function(){
     console.log("Server is running on port 3000.")
 });
 
@@ -53,7 +53,7 @@ app.post("/", function(req, res){
             if (response.statusCode == 200){
                 res.sendFile(__dirname + '/success.html');
             } else {
-                res.sendFile(__dirname + "failure.html");
+                res.sendFile(__dirname + '/failure.html');
             }
         })
     });
